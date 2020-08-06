@@ -1,7 +1,10 @@
 # Multiformat Endpoints in Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/ptournet/laravel-multiformat.svg?style=flat-square)](https://packagist.org/packages/ptournet/laravel-multiformat)
-[![Total Downloads](https://img.shields.io/packagist/dt/ptournet/laravel-multiformat.svg?style=flat-square)](https://packagist.org/packages/ptournet/laravel-multiformat)
+[![Latest Stable Version](https://poser.pugx.org/ptournet/laravel-multiformat/v)](//packagist.org/packages/ptournet/laravel-multiformat) 
+[![Latest Unstable Version](https://poser.pugx.org/ptournet/laravel-multiformat/v/unstable)](//packagist.org/packages/ptournet/laravel-multiformat) 
+[![Build Status](https://travis-ci.com/ptournet/laravel-multiformat.svg?branch=master)](https://travis-ci.com/ptournet/laravel-multiformat) 
+[![Total Downloads](https://poser.pugx.org/ptournet/laravel-multiformat/downloads)](//packagist.org/packages/ptournet/laravel-multiformat) 
+[![License](https://poser.pugx.org/ptournet/laravel-multiformat/license)](//packagist.org/packages/ptournet/laravel-multiformat) 
 
 This package allows a single Laravel route to answer with different formats (often HTML and JSON). It is meant to be a drop-in replacement fo the unmaintained package: [m1guelpf/laravel-multiformat](https://github.com/m1guelpf/laravel-multiformat) with new features and compatibility with the latest Laravel versions.   
 
