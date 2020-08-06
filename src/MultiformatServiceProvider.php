@@ -18,8 +18,6 @@ class MultiformatServiceProvider extends ServiceProvider
         });
 
         Request::macro('match', function ($responses, $defaultFormat = 'html') {
-            echo "Macro 'match' has been marked as deprecated\n";
-
             if ($this->route('_format') === null) {
                 return value(array_get($responses, $this->format($defaultFormat)));
             }
