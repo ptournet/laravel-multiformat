@@ -12,30 +12,31 @@ class MultiformatServiceProviderTest extends TestCase
     protected function getPackageProviders($application)
     {
         return [
-            MultiformatServiceProvider::class
+            MultiformatServiceProvider::class,
         ];
     }
 
     /** @test */
     public function the_multiformat_macro_should_alter_a_route_uri()
     {
-        $uri = "initial/endpoint";
-        $route = Route::get($uri, function () {});
+        $uri = 'initial/endpoint';
+        $route = Route::get($uri, function () {
+        });
         $this->assertEquals($uri, $route->uri);
 
         $route->multiformat();
-        $this->assertEquals($uri . '{_format?}', $route->uri);
+        $this->assertEquals($uri.'{_format?}', $route->uri);
     }
 
     /** @test */
     public function the_match_macro_should_return_the_correct_type_for_a_non_multiformat_endpoint_based_on_the_http_accept()
     {
-        $uri = "initial/endpoint";
+        $uri = 'initial/endpoint';
         Route::get($uri, function (Request $request) {
             return $request->match([
                 'html' => 1,
                 'json' => 2,
-                'xml' => 3
+                'xml' => 3,
             ]);
         });
 
@@ -50,12 +51,12 @@ class MultiformatServiceProviderTest extends TestCase
     /** @test */
     public function the_match_macro_should_return_the_correct_type_for_a_valid_format_for_a_multiformat_endpoint()
     {
-        $uri = "initial/endpoint";
+        $uri = 'initial/endpoint';
         Route::get($uri, function (Request $request) {
             return $request->match([
                 'html' => 1,
                 'json' => 2,
-                'xml' => 3
+                'xml' => 3,
             ]);
         })->multiformat();
 
@@ -72,17 +73,16 @@ class MultiformatServiceProviderTest extends TestCase
     /** @test */
     public function the_match_macro_should_return_a_404_for_an_invalid_format_for_a_multiformat_endpoint()
     {
-        $uri = "initial/endpoint";
+        $uri = 'initial/endpoint';
         Route::get($uri, function (Request $request) {
             return $request->match([
                 'html' => 1,
                 'json' => 2,
-                'xml' => 3
+                'xml' => 3,
             ]);
         })->multiformat();
 
         $response = $this->get($uri.'.foo');
         $response->assertStatus(404);
     }
-
 }
