@@ -86,16 +86,15 @@ class MultiformatServiceProviderTest extends TestCase
         $response->assertStatus(404);
     }
 
-
     /** @test */
     public function the_matchFormat_macro_should_return_the_correct_type_for_a_non_multiformat_endpoint_based_on_the_http_accept()
     {
-        $uri = "initial/endpoint";
+        $uri = 'initial/endpoint';
         Route::get($uri, function (Request $request) {
             return $request->matchFormat([
                 'html' => 1,
                 'json' => 2,
-                'xml' => 3
+                'xml' => 3,
             ]);
         });
 
@@ -110,12 +109,12 @@ class MultiformatServiceProviderTest extends TestCase
     /** @test */
     public function the_matchFormat_macro_should_return_the_correct_type_for_a_valid_format_for_a_multiformat_endpoint()
     {
-        $uri = "initial/endpoint";
+        $uri = 'initial/endpoint';
         Route::get($uri, function (Request $request) {
             return $request->matchFormat([
                 'html' => 1,
                 'json' => 2,
-                'xml' => 3
+                'xml' => 3,
             ]);
         })->multiformat();
 
@@ -132,12 +131,12 @@ class MultiformatServiceProviderTest extends TestCase
     /** @test */
     public function the_matchFormat_macro_should_return_a_404_for_an_invalid_format_for_a_multiformat_endpoint()
     {
-        $uri = "initial/endpoint";
+        $uri = 'initial/endpoint';
         Route::get($uri, function (Request $request) {
             return $request->matchFormat([
                 'html' => 1,
                 'json' => 2,
-                'xml' => 3
+                'xml' => 3,
             ]);
         })->multiformat();
 
