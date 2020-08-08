@@ -33,7 +33,7 @@ composer require ptournet/laravel-multiformat
 Route::get('/podcasts/{id}', 'PodcastsController@show')->multiformat();
 
 /**
- * Use `Request::match()` to return the right response for the requested format.
+ * Use `Request::matchFormat()` to return the right response for the requested format.
  *
  * Supports closures to avoid doing unnecessary work, and returns 404 if the
  * requested format is not supported.
@@ -46,7 +46,7 @@ class PodcastsController
     {
         $podcast = Podcast::findOrFail($id);
         
-        return request()->match([
+        return request()->matchFormat([
             'html' => view('podcasts.show', [
                 'podcast' => $podcast,
                 'episodes' => $podcast->recentEpisodes(5),
