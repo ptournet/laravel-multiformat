@@ -5,6 +5,8 @@ namespace Ptournet\Multiformat;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 
@@ -30,7 +32,10 @@ class MultiformatServiceProvider extends ServiceProvider
         });
 
         Request::macro('match', function ($responses, $defaultFormat = 'html') {
-            echo "match() macro has been deprecated and will be removed in v2, please use matchFormat() instead.\n";
+            if (App::runningUnitTests())
+                echo "match() macro has been deprecated and will be removed in v2, please use matchFormat() instead.\n";
+            else
+                Log::warning('match() macro has been deprecated and will be removed in v2.0, please use matchFormat() instead.');
 
             return $this->matchFormat($responses, $defaultFormat);
         });
