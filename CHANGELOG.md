@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-multiformat` will be documented in this file
 
+## 1.1.1
+
+- Output modification of macro deprecation message
+
 ## 1.1.0
 
 - Provided compatibility with Laravel 6+
