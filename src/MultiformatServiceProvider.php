@@ -32,10 +32,11 @@ class MultiformatServiceProvider extends ServiceProvider
         });
 
         Request::macro('match', function ($responses, $defaultFormat = 'html') {
-            if (App::runningUnitTests())
+            if (App::runningUnitTests()) {
                 echo "match() macro has been deprecated and will be removed in v2, please use matchFormat() instead.\n";
-            else
+            } else {
                 Log::warning('match() macro has been deprecated and will be removed in v2.0, please use matchFormat() instead.');
+            }
 
             return $this->matchFormat($responses, $defaultFormat);
         });
